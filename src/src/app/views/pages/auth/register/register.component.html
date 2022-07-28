@@ -1,0 +1,212 @@
+<div class="row backgroung-img">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-content">
+                <div class="card-body login-img">
+                    <div class="px-3">
+                        <form [formGroup]="form" class="form form-horizontal" novalidate>
+                            <div class="form-body pt-2">
+                                <h2 class="text-bold-500">Registration</h2>
+                                <h4 class="form-section sub-header"><i class="ft-file-text"></i><b>Information</b></h4>
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="mandatory">User Name</label>
+                                            <input type="text" maxlength="50" class="form-control"
+                                                formControlName="userName" autocomplete="off" inputText>
+                                            <span class="form-text text-muted danger mandatory"
+                                                *ngIf="!form.get('userName')?.valid && (form.get('userName')?.dirty || form.get('userName')?.touched)">
+                                                User Name is required
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="mandatory">Last Name</label>
+                                            <input type="text" maxlength="50" class="form-control"
+                                                formControlName="lastName" autocomplete="off" inputText>
+                                            <span class="form-text text-muted danger mandatory"
+                                                *ngIf="!form.get('lastName')?.valid && (form.get('lastName')?.dirty || form.get('lastName')?.touched)">
+                                                Last Name is required
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="mandatory">Email</label>
+                                            <input type="email" maxlength="50" class="form-control"
+                                                formControlName="email" autocomplete="off"
+                                                (keydown.space)="$event.preventDefault();"
+                                                pattern="^[a-zA-Z0-9.-_]{1,}@[a-zA-Z0-9.-]{1,}[.]{1}[a-zA-Z]{2,}$"
+                                                oninput="this.value = this.value.toLowerCase()">
+                                            <div class="valid-error"
+                                                *ngIf="form.controls.email.errors?.['required'] && (form.controls.email.dirty || form.controls.email.touched)"
+                                                text-wrap>
+                                                <span *ngIf="form.controls.email.errors?.required"
+                                                    class="form-text text-muted danger mandatory">
+                                                    Email Address Is Required</span>
+                                            </div>
+                                            <span class="form-text text-muted danger mandatory"
+                                                *ngIf="form.controls.email.errors?.['email'] && (form.controls.email.dirty || form.controls.email.touched)">
+                                                Enter the valid Email</span>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="mandatory">Date of Birth</label>
+                                            <div class="input-group mb-0">
+                                                <input class="form-control" formControlName="dob"
+                                                    [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1"
+                                                    (ngModelChange)="onChangedob()">
+                                                <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                                                <div class="input-group-append">
+                                                    <span class="trigger input-group-text" [owlDateTimeTrigger]="dt1">
+                                                        <i class="fa fa-calendar-check-o"></i>
+                                                    </span>
+                                                    <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="mandatory">Gender</label>
+                                            <mat-select aria-label="true" formControlName="genderType" class="form-control"
+                                            (selectionChange)="genderChange($event)" placeholder="Select Gender Type">
+                                            <mat-select-filter [displayMember]="'value'" [array]="genderTypeList"
+                                              (filteredReturn)="filtergenderTypeList =$event"></mat-select-filter>
+                                            <mat-option *ngFor="let item of filtergenderTypeList" [value]="item.key">
+                                              {{item.value}}
+                                            </mat-option>
+                                          </mat-select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="mandatory">Mobile Number</label>
+                                            <input type="text" minlength="10" maxlength="10" class="form-control"
+                                            formControlName="mobileNo" autocomplete="off" onlyNumber>
+                                            <span class="form-text text-muted danger mandatory"
+                                            *ngIf="!form.get('mobileNo')?.valid && (form.get('mobileNo')?.dirty || form.get('mobileNo')?.touched)">
+                                            Mobile Number is required
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="mandatory">Address</label>
+                                            <textarea type="text" class="form-control" maxlength="5000"
+                                            formControlName="address" autocomplete="off" inputText>
+                                            </textarea>
+                                            <span class="form-text text-muted danger mandatory"
+                                            *ngIf="!form.get('address')?.valid && (form.get('address')?.dirty || form.get('address')?.touched)">
+                                            Address is required
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="mandatory">Qualification</label>
+                                            <input type="text" maxlength="500" class="form-control"
+                                            formControlName="qualification" autocomplete="off">
+                                            <span class="form-text text-muted danger mandatory"
+                                            *ngIf="!form.get('qualification')?.valid && (form.get('qualification')?.dirty || form.get('qualification')?.touched)">
+                                            Qualification is required
+                                        </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="newpassword">Password</label>
+                                            <div class="input_with_icon">
+                                              <i class="fa fa-eye pass_icon" aria-hidden="true"
+                                                  *ngIf="show && form.controls.newpassword.value"
+                                                  (click)="password()"></i>
+                                              <i class="fa fa-eye-slash pass_icon" aria-hidden="true"
+                                                  *ngIf="!show  && form.controls.newpassword.value"
+                                                  (click)="password()"></i>
+                                              <input  [type]="show ? 'text' : 'password'" id="newpassword"
+                                                  class="form-control" formControlName="newpassword"
+                                                  placeholder="New Password" minlength="8" maxlength="12" autocomplete="off" required passwordOnly>
+                                              </div>
+                                              <small
+                                              class="form-text text-muted danger"
+                                              *ngIf="form.controls.newpassword?.hasError('required') && form.controls.newpassword?.touched">
+                                              Password Is Required
+                                            </small>
+                                             <!-- <small class="form-text text-muted danger"
+                                              *ngIf="form.controls.newpassword?.hasError('passwordStrength')">
+                                              {{form.controls.newpassword?.errors('passwordStrength')}}
+                                            </small> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="confirmpassword">Confirm Password</label>
+                                            <div class="input_with_icon">
+                                                <i class="fa fa-eye pass_icon" aria-hidden="true"
+                                                    *ngIf="show2 && form.controls.confirmpassword.value"
+                                                    (click)="confirmpassword()"></i>
+                                                <i class="fa fa-eye-slash pass_icon" aria-hidden="true"
+                                                    *ngIf="!show2  && form.controls.confirmpassword.value"
+                                                    (click)="confirmpassword()"></i>
+                                                <input  [type]="show2 ? 'text' : 'password'" id="confirmpassword"
+                                                    class="form-control" formControlName="confirmpassword"
+                                                    placeholder="Confirm Password" minlength="8" maxlength="12" autocomplete="off" required passwordOnly>
+                                                </div>
+                                              <small
+                                                class="form-text text-muted danger"
+                                                *ngIf="!form.controls.confirmpassword?.valid && (form.controls.confirmpassword?.dirty || form.controls.confirmpassword?.touched)">
+                                                Confirm Password Is Required
+                                              </small>
+                                              <small
+                                                class="form-text text-muted danger"
+                                                *ngIf="form.controls.confirmpassword?.valid && (form.controls.confirmpassword?.value != form.controls.newpassword.value)">
+                                                Please enter correct password
+                                              </small>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <fieldset>
+                                                <label>Photo Upload</label>
+                                                <div class="custom-file  mx-auto d-block" >
+                                                    <input type="file" name="files" class="custom-file-input"
+                                                        id="inputGroupFile01" (change)="onFileSelected($event)" required
+                                                        accept="image/png,image/jpg,image/jpeg" [disabled]="isDisable">
+                                                    <input type="hidden" name="fileHidden" formControlName="userPhotoPath" [disabled]="isDisable">
+                                                    <label class="custom-file-label" for="inputGroupFile01">
+                                                        {{selectedFileName}}
+                                                    </label>
+                                                    <small class="form-text text-muted danger"
+                                                        *ngIf="!form.controls.userPhotoPath.valid && (form.controls.userPhotoPath.dirty || form.controls.userPhotoPath.touched)">
+                                                        Photo Upload Is Required
+                                                    </small>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 d-flex align-items-center">
+                                        <img  (click)="open()" *ngIf="filesResult" class="attachment_img" [src]="'data:image/jpg;base64,'+filesResult"  />
+                                    </div>
+                                  </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

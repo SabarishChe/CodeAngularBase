@@ -1,0 +1,69 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~ngx-toastr/toastr";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+
+// Booststrap functions and variables
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+// Bootstrap main SCSS
+@import '~bootstrap/scss/bootstrap.scss';
+
+
+form label {
+    text-transform: capitalize;
+  }
+
+  .form-control{
+    display: block;
+    // width: 100%;
+    // height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.5rem 1rem!important;;
+    font-size: 0.875rem!important;;
+    font-weight: 400!important;;
+    line-height: 1;
+    color: #495057!important;;
+    background-color: #ffffff!important;;
+    background-clip: padding-box!important;;
+    border: 1px solid #ced4da!important;
+    border-radius: 2px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .danger {
+    color: #ff586b !important;
+    text-transform: capitalize;
+  }
+
+
+  .mat-select{
+    padding-top: 0!important;
+    padding-bottom: 0!important;
+  }
+  .mat-select-trigger{
+    height: 100%;
+  }
+  .mat-select-value{
+    // height: 100%;
+    // padding-bottom: 0;
+    // margin-bottom: 0;
+    // padding-top: 1.4%;
+    vertical-align: middle;
+  }
+  .mat-select-disabled, .mat-select-disabled span{
+  background-color: #e9ecef!important;
+  color: #495057 !important;
+  }
+
+  textarea {
+    resize: both;
+    overflow: auto;
+    min-height: 100px;
+  } 

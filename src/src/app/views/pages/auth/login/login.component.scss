@@ -1,0 +1,105 @@
+// Login Page
+#login {
+
+  
+    .login_sec {
+      background-position  : 100%;
+      background-attachment: fixed;
+      height               : calc(100vh);
+      background-size: 100%;
+      background-color: white;
+    }
+  
+    .loginpage {
+      background-size  : 100% 100% !important;
+      background-repeat: no-repeat;
+      overflow         : hidden;
+      height           : calc(100vh);
+  
+    }
+  
+    .full-height-vh {
+      height: auto !important;
+  }
+  
+  
+    .card {
+      border       : 0;
+      margin       : 18px 0;
+      box-shadow   : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 4px;
+      width        : 62%;
+      padding      : 15px;
+      
+    }
+    .card .card-title {
+      color: #000;
+      margin-bottom: 1.2rem;
+      text-transform: uppercase;
+      font-size: .875rem;
+      font-weight: bold;
+  }
+    .row {
+      margin-right: 0px !important;
+      margin-left : 0px !important;
+    }
+  
+    // Register Button Color
+    .btn-outline-primary {
+      border-color: #6db02d !important;
+  
+      &:hover {
+        background-color: #6db02d !important;
+      }
+    }
+  
+    // Login Button Color
+    .btn.btn-primary {
+      background-color: #3f3f3f !important;
+      border-color    : #3f3f3f !important;
+      color           : #fff !important;
+    }
+  
+    .btn.btn-primary.mr-1.btnsubmit {
+      background-color: #6db02d !important;
+      border-color    : #6db02d !important;
+      color           : #fff !important;
+    }
+  
+    // Forgot Password Color
+    .forgot-password-option,
+    .remember-me {
+  
+      a.text-decoration-none,
+      .custom-control-label {
+        font-size: 14px;
+      }
+    }
+  
+    @media only screen and (max-width :767px) {
+      .card {
+        border       : 0;
+        margin       : 18px 0;
+        box-shadow   : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 4px;
+        width        : 100%;
+        padding      : 15px;
+      }
+    }
+  }
+
+  .bg-white {
+    background-color : #ffffff !important;
+    background-size  : 100% 100% !important;
+    background-repeat: no-repeat;
+  }
+
+  .input_with_icon{
+    position: relative;
+  }
+  .pass_icon{
+    position: absolute;
+      right: 2%;
+      top: 30%;
+  }
+  

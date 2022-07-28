@@ -1,0 +1,35 @@
+.backgroung-img {
+    background-image     : url('../../../../../assets/images/registerBG.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.header-text { 
+    color: #bf0000 !important; 
+    white-space: nowrap;
+    font-size: 2.2rem;
+  }
+
+.sub-header {
+    white-space: nowrap;
+}
+
+.input_with_icon{
+    position: relative;
+    color: black;
+  }
+  
+  .pass_icon{
+    position: absolute;
+      right: 2%;
+      top: 30%;
+      color: black;
+  }
+
+
+  .attachment_img{
+    width: 100px;
+    height: 92px;
+    border-radius: 16%;
+    cursor: pointer;
+  }
